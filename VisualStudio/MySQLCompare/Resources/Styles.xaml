@@ -1,0 +1,157 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- TODO:
+         * Move colors defined in ProfileItemView.xaml to here
+    -->
+    
+    <!-- Global Window Settings -->
+    <Style x:Key="GlobalWindowSettings" TargetType="{x:Type Window}">
+        <Setter Property="Background" Value="#FAFAFA"></Setter>
+        <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+    </Style>
+    
+    <!-- Common Colors -->
+    <SolidColorBrush Color="#1A91FF" x:Key="MainBlueBrush" />
+    <SolidColorBrush Color="#D0D0D0" x:Key="AccentChromeBrush" />
+    <SolidColorBrush Color="#888888" x:Key="DarkHeadingBrush" />
+    <SolidColorBrush Color="#EFEFEF" x:Key="InsetBackgroundBrush" />
+    
+    <!-- UI Element Styles -->
+    <Style x:Key="HeadingText" TargetType="TextBlock">
+        <Style.Setters>
+            <Setter Property="Foreground" Value="{StaticResource ResourceKey=MainBlueBrush}"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+        </Style.Setters>
+    </Style>
+    
+    <Style x:Key="HeadingBorder" TargetType="Border">
+        <Style.Setters>
+            <Setter Property="BorderBrush" Value="{StaticResource ResourceKey=MainBlueBrush}"></Setter>
+            <Setter Property="BorderThickness" Value="0 0 0 1"></Setter>
+        </Style.Setters>
+    </Style>
+
+    <Style x:Key="TextButton" TargetType="Button">                    
+        <Setter Property="OverridesDefaultStyle" Value="True"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Border">
+                        <TextBlock x:Name="TextBlock" TextAlignment="Center">
+                            <ContentPresenter />
+                        </TextBlock>
+                    </Border>
+                    
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                                <Condition Property="IsEnabled" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource ResourceKey=MainBlueBrush}"></Setter>
+                            <Setter TargetName="TextBlock" Property="Foreground" Value="#FFFFFF"></Setter>
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="TextBlock" Property="Foreground" Value="{StaticResource ResourceKey=AccentChromeBrush}"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="ProgressBarMinimalStyle" TargetType="{x:Type ProgressBar}">
+        <Style.Setters>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ProgressBar}">
+                        <Grid>
+                            <Border
+                                Name="PART_Track"
+                                CornerRadius="0"
+                                Background="{StaticResource ResourceKey=InsetBackgroundBrush}"
+                                BorderBrush="Transparent"
+                                BorderThickness="0" />
+                            <Border
+                                Name="PART_Indicator"
+                                CornerRadius="0"
+                                Background="{StaticResource ResourceKey=MainBlueBrush}"
+                                BorderBrush="Transparent"
+                                BorderThickness="0"
+                                HorizontalAlignment="Left" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+    
+    <Style x:Key="ThumbMinimalStyle" TargetType="{x:Type Thumb}">
+        <Setter Property="OverridesDefaultStyle" Value="True"></Setter>
+        <Setter Property="Focusable" Value="False"></Setter>
+        <Setter Property="IsTabStop" Value="False"></Setter>
+        <Setter Property="SnapsToDevicePixels" Value="True"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Margin="3 0 3 0" Background="{StaticResource ResourceKey=MainBlueBrush}" CornerRadius="3"></Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style TargetType="{x:Type ScrollBar}">
+        <Style.Setters>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ScrollBar}">
+                        <Track Name="PART_Track" IsDirectionReversed="True" Width="10">
+                            <Track.Thumb>
+                                <Thumb Style="{StaticResource ResourceKey=ThumbMinimalStyle}"></Thumb>
+                            </Track.Thumb>
+                        </Track>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+    
+    <Style x:Key="ListBoxStyle" TargetType="{x:Type ListBox}">
+        <Style.Setters>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+            <Setter Property="Margin" Value="0"></Setter>
+            <Setter Property="Padding" Value="0"></Setter>
+        </Style.Setters>
+    </Style>
+
+    <Style x:Key="ListBoxStyleNoScroll" TargetType="{x:Type ListBox}">
+        <Style.Setters>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+            <Setter Property="Margin" Value="0"></Setter>
+            <Setter Property="Padding" Value="0"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBox">
+                        <Border Name="Border"
+                                Background="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Background}"
+                                BorderBrush="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=BorderBrush}">
+                            <StackPanel IsItemsHost="True"></StackPanel> 
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+
+    <Style x:Key="ListBoxItemContainerStyle" TargetType="{x:Type ListBoxItem}">
+        <Style.Setters>
+            <Setter Property="Margin" Value="0 0 0 0"></Setter>
+            <Setter Property="Padding" Value="0 0 0 0"></Setter>
+        </Style.Setters>
+    </Style>
+</ResourceDictionary>

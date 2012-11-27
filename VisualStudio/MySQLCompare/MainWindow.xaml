@@ -1,0 +1,52 @@
+﻿<Window x:Class="MySQLCompare.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MySQL Compare" Height="500" Width="700"
+        Style="{StaticResource ResourceKey=GlobalWindowSettings}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="75"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <!-- Profile View -->
+        <Border Grid.Row="0" Grid.Column="0" Margin="0 0 5 0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ContentControl Content="{Binding Path=ProfilesView}"></ContentControl>
+            </ScrollViewer>
+        </Border>
+        
+        <!-- Comparison View -->
+        <Border Grid.Row="0" Grid.Column="1">
+            <ContentControl Content="{Binding Path=DbComparisonView}"></ContentControl>
+        </Border>
+        
+        <!-- Generated SQL -->
+        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <ScrollViewer>
+                <TextBox IsReadOnly="True" Background="White" BorderThickness="0" BorderBrush="Transparent" Padding="3" Text="{Binding Path=StatusText}">
+                </TextBox>
+            </ScrollViewer>
+        </Border>
+        
+        <!-- Application Actions -->
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                <Button Command="{Binding Path=CopySqlToClipboardCommand}" Style="{StaticResource ResourceKey=TextButton}" Foreground="{StaticResource ResourceKey=MainBlueBrush}" FontSize="16" Width="135" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Right">
+                    Copy to Clipboard
+                </Button>
+                
+                <!--
+                <Button Command="{Binding Path=GenerateSqlCommand}"  Style="{StaticResource ResourceKey=TextButton}" Foreground="{StaticResource ResourceKey=MainBlueBrush}" FontSize="16" Width="120" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Right">
+                    Generate SQL
+                </Button>
+                -->
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

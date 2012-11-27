@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<profiles>
+  <!-- Specify each profile as a separate XML element with the following required attributes:
+       * name
+       * host
+       * port
+       * username
+       * password
+       * schema
+       
+       Any profile element without all attributes will be ignored
+  -->
+  <!-- Example profiles (remove or modify before using): -->
+  <profile name="Store Test DB" host="testdb.domain.com" port="3306" username="gokus" password="porunga" schema="mydb" />
+  <profile name="Store Production DB" host="db.domain.com" port="3306" username="gohans" password="nimbus" schema="mydb" />
+</profiles>

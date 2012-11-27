@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="MySQLCompare.Views.ProfilesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Padding="2">
+    <StackPanel>
+        
+        <!-- Profile Actions -->
+        <!-- Placeholder for buttons (not yet implemented)
+        <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+            <Button Foreground="{StaticResource ResourceKey=MainBlueBrush}" Style="{StaticResource ResourceKey=TextButton}" Width="100" Margin="0 0 10 0">+ Add New Profile</Button>
+            <TextBlock Foreground="{StaticResource ResourceKey=AccentChromeBrush}" Margin="0 0 10 0">|</TextBlock>
+            <Button Command="{Binding Path=EditProfileCommand}" Foreground="{StaticResource ResourceKey=MainBlueBrush}" Style="{StaticResource ResourceKey=TextButton}" Width="100">~ Edit Profile</Button>
+        </StackPanel>
+        -->
+        
+        <!-- Profile Heading -->
+
+        <Border Style="{StaticResource HeadingBorder}" SnapsToDevicePixels="True" Margin="0 0 0 8">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="17"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <!-- Profiles database platter icon paths -->
+                <Canvas Grid.Column="0" Height="16" Width="17" Margin="0 0 10 0">
+                    <!-- Layer 1/Compound Shape/<Path> -->
+                    <Path SnapsToDevicePixels="True" Margin="0 3 0 0" StrokeThickness="0.3" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="{StaticResource ResourceKey=MainBlueBrush}" Data=" M 16.579,8.785 C 16.579,8.762 16.570,8.739 16.567,8.716 L 16.567,7.960 C 16.570,7.937 16.579,7.914 16.579,7.891 C 16.579,7.867 16.570,7.845 16.567,7.821 L 16.567,7.821 L 16.567,7.821 C 16.444,6.947 14.029,6.250 11.061,6.250 C 8.092,6.250 5.676,6.947 5.553,7.821 L 5.517,7.821 L 5.517,10.635 L 5.552,10.635 C 5.660,11.513 8.081,12.215 11.061,12.215 C 14.108,12.215 16.579,11.480 16.579,10.574 C 16.579,10.551 16.570,10.528 16.567,10.505 L 16.567,9.749 C 16.570,9.726 16.579,9.703 16.579,9.680 C 16.579,9.656 16.570,9.634 16.567,9.610 L 16.567,8.854 C 16.570,8.831 16.579,8.809 16.579,8.785 Z"/>
+                    <!-- Layer 1/<Slice> -->
+                    <Path SnapsToDevicePixels="True" Margin="0 3 0 0" Data=" M 0.000,11.375 L 0.000,5.250 L 11.642,5.250 L 11.642,11.375 L 0.000,11.375 Z"/>
+                    <!-- Layer 1/Compound Shape/<Path> -->
+                    <Path SnapsToDevicePixels="True" Margin="0 3 0 0" StrokeThickness="0.5" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="{StaticResource ResourceKey=MainBlueBrush}" Data=" M 16.579,5.785 C 16.579,5.762 16.570,5.739 16.567,5.716 L 16.567,4.960 C 16.570,4.937 16.579,4.914 16.579,4.891 C 16.579,4.867 16.570,4.845 16.567,4.821 L 16.567,4.821 L 16.567,4.821 C 16.444,3.947 14.029,3.250 11.060,3.250 C 8.091,3.250 5.676,3.947 5.553,4.821 L 5.516,4.821 L 5.516,7.635 L 5.551,7.635 C 5.659,8.513 8.080,9.215 11.060,9.215 C 14.108,9.215 16.579,8.480 16.579,7.574 C 16.579,7.551 16.570,7.528 16.567,7.505 L 16.567,6.749 C 16.570,6.726 16.579,6.703 16.579,6.680 C 16.579,6.656 16.570,6.634 16.567,6.610 L 16.567,5.854 C 16.570,5.831 16.579,5.809 16.579,5.785 Z"/>
+                    <!-- Layer 1/Compound Shape/<Path> -->
+                    <Path SnapsToDevicePixels="True" Margin="0 3 0 0" StrokeThickness="0.5" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="{StaticResource ResourceKey=MainBlueBrush}" Data=" M 16.579,2.785 C 16.579,2.762 16.570,2.739 16.567,2.716 L 16.567,1.959 C 16.570,1.937 16.579,1.914 16.579,1.891 C 16.579,1.867 16.570,1.845 16.567,1.822 L 16.567,1.821 L 16.567,1.821 C 16.444,0.947 14.029,0.250 11.060,0.250 C 8.091,0.250 5.676,0.947 5.553,1.821 L 5.516,1.821 L 5.516,4.635 L 5.551,4.635 C 5.659,5.513 8.080,6.215 11.060,6.215 C 14.108,6.215 16.579,5.480 16.579,4.574 C 16.579,4.551 16.570,4.528 16.567,4.505 L 16.567,3.749 C 16.570,3.726 16.579,3.703 16.579,3.680 C 16.579,3.656 16.570,3.634 16.567,3.611 L 16.567,2.854 C 16.570,2.831 16.579,2.809 16.579,2.785 Z"/>
+                </Canvas>
+                <TextBlock Margin="6 0 0 0" Grid.Column="1" Style="{StaticResource HeadingText}">Profiles</TextBlock>
+            </Grid>
+        </Border>
+        
+        <!-- Profile Selection -->
+        <ListBox Style="{StaticResource ResourceKey=ListBoxStyleNoScroll}" 
+                ItemsSource="{Binding Path=Profiles}" 
+                SelectedItem="{Binding Path=SelectedProfile,Mode=TwoWay}" 
+                ItemContainerStyle="{StaticResource ResourceKey=ListBoxItemContainerStyle}"
+                PreviewMouseLeftButtonDown="HandleMouseClick"
+                PreviewMouseMove="HandleMouseMove">
+        </ListBox>
+
+    </StackPanel>
+</UserControl>

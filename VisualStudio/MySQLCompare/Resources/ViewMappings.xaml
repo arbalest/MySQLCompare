@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:view="clr-namespace:MySQLCompare.Views"
+                    xmlns:viewmodel="clr-namespace:MySQLCompare.ViewModels">
+
+    <DataTemplate DataType="{x:Type viewmodel:ProfilesViewModel}">
+        <view:ProfilesView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewmodel:ProfileItemViewModel}">
+        <view:ProfileItemView />
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type viewmodel:DbComparisonViewModel}">
+        <view:DbComparisonView />
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type viewmodel:DbTableComparisonViewModel}">
+        <view:DbTableComparisonView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewmodel:DbPropertyComparisonViewModel}">
+        <view:DbPropertyComparisonView />
+    </DataTemplate>
+
+</ResourceDictionary>

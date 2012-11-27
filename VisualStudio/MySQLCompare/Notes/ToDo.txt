@@ -1,0 +1,12 @@
+﻿2012-09-25
+-------------------------------------------------------
+[x] * Fix text button styles
+[x] * Bind "edit" button to profile listbox selection
+[x] * Create XML settings structure
+[x] * Read XML settings structure into ListView
+[x] * Import MySQL Connector Library
+[x] * Allow drag and drop of profiles into comparison view
+[x] * Create schema comparison code
+[x] * Create table value comparison code
+[x] * Create comparison view
+[ ] * Create "add profile" and "edit profile" screens
